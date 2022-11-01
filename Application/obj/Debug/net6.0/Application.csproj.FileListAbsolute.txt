@@ -1,0 +1,15 @@
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\bin\Debug\net6.0\Application.deps.json
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\bin\Debug\net6.0\Application.dll
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\bin\Debug\net6.0\Application.pdb
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\bin\Debug\net6.0\Domain.dll
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\bin\Debug\net6.0\Domain.pdb
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.csproj.AssemblyReference.cache
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.AssemblyInfoInputs.cache
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.AssemblyInfo.cs
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.csproj.CopyComplete
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.dll
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\refint\Application.dll
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\Application.pdb
+C:\Users\sofia\RiderProjects\DiscussionForum\Application\obj\Debug\net6.0\ref\Application.dll
