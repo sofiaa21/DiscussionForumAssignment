@@ -1,6 +1,7 @@
 ﻿namespace FileData.DAOs;
 
 using Application.DAOs;
+using Domain.DTOs;
 using Domain.Models;
 
 public class UserFileDao:IUserDao
@@ -17,6 +18,18 @@ public class UserFileDao:IUserDao
         context.Users.Add(user);
         context.SaveChanges();
         return Task.FromResult(user);
+    }
+
+    public Task<IEnumerable<User>> GetAsync(SearchParametersDto searchParameters)
+    {
+        IEnumerable<User> users = context.Users.AsEnumerable();
+        if (searchParameters.UsernameContains != null)
+        {
+            users = context.Users.Where(u =>
+                u.UserName.Contains(searchParameters.UsernameContains, StringComparison.OrdinalIgnoreCase));
+        }
+
+        return Task.FromResult(users);
     }
 
     public Task<User?> GetByUsernameAsync(string userName)

@@ -5,4 +5,5 @@ using Domain.Models;
 
 public interface IPostLogic
 {
+    Task<Post> CreateAsync(PostCreationDto dto);
 }

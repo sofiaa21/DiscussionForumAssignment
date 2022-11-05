@@ -7,16 +7,16 @@ using LogicInterfaces;
 
 public class UserLogic:IUserLogic
 {
-    private readonly IUserDao UserDao;
+    private readonly IUserDao userDao;
 
-    public UserLogic(IUserDao UserDao)
+    public UserLogic(IUserDao userDao)
     {
-        this.UserDao = UserDao;
+        this.userDao = userDao;
     }
 
     public async Task<User> CreateAsync(UserCreationDto dto)
     {
-        User? existing = await UserDao.GetByUsernameAsync(dto.UserName);
+        User? existing = await userDao.GetByUsernameAsync(dto.UserName);
 
         if (existing != null)
         {
@@ -26,12 +26,19 @@ public class UserLogic:IUserLogic
         ValidateData(dto);
         User toCreate = new User
         {
-            UserName = dto.UserName
+            UserName = dto.UserName,
+            Password = dto.Password
         };
 
-        User createdUser = await UserDao.CreateAsync(toCreate);
+        User createdUser = await userDao.CreateAsync(toCreate);
         return createdUser;
     }
+
+    public Task<IEnumerable<User>> GetAsync(SearchParametersDto searchParameters)
+    {
+        return userDao.GetAsync(searchParameters);
+    }
+
 
     private static void ValidateData(UserCreationDto userToCreate)
     {

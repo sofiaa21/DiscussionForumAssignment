@@ -18,6 +18,15 @@ public class FileContext
         
     }
 
+    public ICollection<Post> Posts
+    {
+        get
+        {
+            LoadData();
+            return dataContainer!.Posts;
+        }
+    }
+
     private void LoadData()
     {
         if(dataContainer!=null)

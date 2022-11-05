@@ -5,7 +5,7 @@ using Domain.Models;
 
 public interface IUserLogic
 {
-    public Task<User> CreateAsync(UserCreationDto dto);
-    // public Task<IEnumerable<User> GetAsync()
+    public Task<User> CreateAsync(UserCreationDto userToCreate);
+    public Task<IEnumerable<User>> GetAsync(SearchParametersDto searchParameters);
 
 }
