@@ -21,12 +21,13 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped(
     sp => 
         new HttpClient { 
-            BaseAddress = new Uri("https://localhost:7093") 
+            BaseAddress = new Uri("https://localhost:7095") 
         }
 );
 
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

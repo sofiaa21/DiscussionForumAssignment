@@ -32,6 +32,11 @@ public class PostLogic:IPostLogic
         return createdPost;
     }
 
+    public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto searchPostParameters)
+    {
+        return postDao.GetAsync(searchPostParameters);
+    }
+
     private void ValidatePost(Post postToBeCreated)
     {
         if (string.IsNullOrEmpty(postToBeCreated.Title))

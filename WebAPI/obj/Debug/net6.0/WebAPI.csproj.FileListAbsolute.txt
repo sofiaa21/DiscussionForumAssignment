@@ -64,3 +64,4 @@ C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\refint\Web
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\data.json
