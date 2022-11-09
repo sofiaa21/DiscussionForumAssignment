@@ -12,12 +12,13 @@
         {
             <label style="color: @color">@resultMsg</label>
         }
-        <label>Password: </label>
-        <input type="text" @bind="password" @bind:event="oninput"/>
-        @if (!string.IsNullOrEmpty(resultMsg))
-        {
-            <label style="color: @color">@resultMsg</label>
-        }
+        
+        <label>Password:</label>
+                <input type="text" @bind="password" @bind:event="oninput"/>
+                @if (!string.IsNullOrEmpty(resultMsg))
+                {
+                    <label style="color: @color">@resultMsg</label>
+                }
         
     </div>
     <div class="button-row">
@@ -25,15 +26,7 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
 @code {
-    
     private string username = "";
     private string password = "";
     private string resultMsg = "";
@@ -45,7 +38,7 @@
 
         try
         {
-            await userService.Create(new UserCreationDto(username,password));
+            await userService.Create(new UserCreationDto(username, password));
             username = "";
             resultMsg = "User successfully created";
             color = "green";
@@ -57,6 +50,4 @@
             color = "red";
         }
     }
-
-    
 }

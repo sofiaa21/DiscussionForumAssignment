@@ -21,7 +21,7 @@ builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped(
     sp => 
         new HttpClient { 
-            BaseAddress = new Uri("https://localhost:7095") 
+            BaseAddress = new Uri("https://localhost:7145") 
         }
 );
 
