@@ -1,0 +1,95 @@
+﻿@page "/ViewPosts"
+@inject IPostService postService;
+@using Domain.Models
+@using HttpClients
+<h3>Posts</h3>
+
+<div class="filter-bar">
+    <div class="filters-container">
+        <img src="icons/@(doShowFilters ? "clear_" : "")funnel.png" class="funnel" @onclick="@(() => doShowFilters = !doShowFilters)" alt="Funnel"/>
+        @if (doShowFilters)
+        {
+            <div class="filter">
+                <label>Username:</label>
+                <input type="text" @bind="userNameFilter"/>
+            </div>
+            <div class="filter">
+                <label>Title contains:</label>
+                <input type="text" @bind="titleContainsFilter"/>
+            </div>
+        }
+    </div>
+</div>
+
+<div>
+    <button @onclick="LoadPosts">Load</button>
+</div>
+
+@if (posts == null)
+{
+    
+}
+else if (!posts.Any())
+{
+    <p> No posts to display :(</p>
+}
+
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Author</th>
+            <th>Title</th>
+            <th>Body</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in posts)
+        {
+            <tr>
+                <td>@item.Author.UserName</td>
+                <td>@item.Title</td>
+                <td>@item.Body</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+@if (!string.IsNullOrEmpty(msg))
+{
+    <label style="color: red">@msg</label>
+}
+
+
+
+@code {
+
+    private IEnumerable<Post>? posts;
+    private string msg = "";
+    private bool doShowFilters = false;
+
+
+    private string? userNameFilter;
+    private string? titleContainsFilter;
+    
+    
+    
+
+    private async Task LoadPosts()
+    {
+        try
+        {
+            
+            posts = await postService.GetAsync(userNameFilter, titleContainsFilter);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            msg=e.Message;
+        }
+    }
+    
+    
+    
+}

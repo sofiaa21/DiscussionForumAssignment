@@ -8,9 +8,9 @@ public class PostCreationDto
     public string Title { get; set; }
     public string Body { get; set; }
 
-    public PostCreationDto(string title, string body)
+    public PostCreationDto(string ownerUsername, string title, string body)
     {
-        
+        OwnerUsername = ownerUsername;
         Title = title;
         Body = body;
     }
