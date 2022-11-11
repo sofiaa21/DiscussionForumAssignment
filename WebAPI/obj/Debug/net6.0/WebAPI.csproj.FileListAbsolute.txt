@@ -74,4 +74,3 @@ C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\data.json
