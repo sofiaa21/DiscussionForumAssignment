@@ -1,39 +1,29 @@
 ﻿@page "/CreatePost"
-@using Domain.Models
+@attribute [Authorize]
 @using HttpClients
 @using Domain.DTOs
+@using Domain.Models
+@using System.Security.Claims
 @inject IUserService userService;
 @inject IPostService postService;
+@inject NavigationManager navMgr  
 
 <div class="card">
-    @if (users == null)
-    {
-        <label>Loading users...</label>
-    }
-    else if (!users.Any())
-    {
-        <label>No users, you cannot create a Todo without assignee.</label>
-    }
-    else
-    {
+ 
+    
         <h2> Create a post </h2>
         <div class="form-group-field">
             <label> Title: </label>
             <input type="text" @bind="postTitle"/>
         </div>
-        <div class="text-body">
-            <label>Body: </label>
-            <input type="text" @bind="postBody"/>
-        </div>
+    <div class="text-body">
+        <label>Body: </label>
+        <input type="text" @bind="postBody" style="width: 200px; height: 150px"/>
+    </div>
+    
         <div class="form-group-field">
-            <label> Author: </label>
-            <select @bind="selectedUserUsername">
-                <option> Choose </option>
-                @foreach (User user in users)
-                {
-                    <option value="@user.UserName">@user.UserName</option>
-                }
-            </select>
+            <label> Please sign your wise words so they can be tracked back to you : </label>
+            <input type="text" @bind="userName">
         </div>
         
         <div class="button-row">
@@ -43,50 +33,61 @@
             }
             <button @onclick="Create" class="acceptbtn">Create</button>
         </div>
-    }
+    
 </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
 @code {
     private IEnumerable<User> users;
-    private string? selectedUserUsername;
+    private string? userName;
     private string postTitle;
     private string postBody;
     
     
     private string msg="";
 
+
+    [CascadingParameter]
+    public Task<AuthenticationState> authState { get; set; } = null!;
+
+    private IEnumerable<Claim?> claims;
+    private bool isUserLoggedIn;
+    
+    
+
     protected override async Task OnInitializedAsync()
     {
         msg = "";
+        AuthenticationState authenticationState = await authState;
+        ClaimsPrincipal user = authenticationState.User;
+        isUserLoggedIn = user.Identity != null;
+
+        if (!isUserLoggedIn)
+        
+            return;
+
+        claims = user.Claims;
+
+
         try
         {
             users = await userService.GetUsers();
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Console.WriteLine(e);
-            msg=e.Message;
+            throw;
         }
     }
 
     private async Task Create()
     {
         msg = "";
-        if (string.IsNullOrEmpty(selectedUserUsername))
+        
+        if (string.IsNullOrEmpty(userName))
         {
-            msg = "You must select an assignee!";
+            msg = "Username cant be empty!";
             return;
         }
         if (string.IsNullOrEmpty(postTitle))
@@ -102,9 +103,11 @@
 
         try
         {
-            PostCreationDto dto = new(selectedUserUsername, postTitle, postBody);
-            await postService.CreateAsync(dto);
-            msg = "Post successfully created!";
+
+
+            PostCreationDto newPost = new(userName, postTitle, postBody);
+            await postService.CreateAsync(newPost);
+            navMgr.NavigateTo("/ViewPosts");
             
 
         }

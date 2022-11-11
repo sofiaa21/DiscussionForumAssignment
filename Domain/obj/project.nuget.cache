@@ -1,8 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "7cZcuAHa0LFm3jFCsWdyrE1kicllbNhJ65+04I5eovmfaADygLh2MuQDm69rtimE7+ar7AcqYWc3NBUNz+SsvA==",
+  "dgSpecHash": "2E0saXeQcSd64xX+SOko2Kry0OwCNzlBrceQPpnBH/ZSH5S58rDw8XdEvKXRj8XxrWIULJDxOi/fouIokD+eXw==",
   "success": true,
   "projectFilePath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\Domain\\Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.11\\microsoft.aspnetcore.authorization.6.0.11.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.aspnetcore.metadata\\6.0.11\\microsoft.aspnetcore.metadata.6.0.11.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.3\\microsoft.extensions.logging.abstractions.6.0.3.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\sofia\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
   "logs": []
 }

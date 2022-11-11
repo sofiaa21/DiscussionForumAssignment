@@ -17,8 +17,17 @@ public class PostFileDao: IPostDao
 
     public Task<Post> CreateAsync(Post post)
     {
+        int id = 1;
+        if (context.Posts.Any())
+        {
+            id = context.Posts.Max(p => p.Id);
+            id++;
+        }
+
+        post.Id = id;
         context.Posts.Add(post);
         context.SaveChanges();
+        
         return Task.FromResult(post);
     }
 
@@ -39,5 +48,11 @@ public class PostFileDao: IPostDao
         }
 
         return Task.FromResult(result);
+    }
+
+    public Task<Post?> GetByIdAsync(int postId)
+    {
+        Post? existing = context.Posts.FirstOrDefault(p => p.Id == postId);
+        return Task.FromResult(existing);
     }
 }

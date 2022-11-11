@@ -44,6 +44,22 @@ public class PostHttpClient:IPostService
         return posts;
     }
 
+    public async Task<PostBasicDto> GetByIdAsync(int id)
+    {
+        HttpResponseMessage responseMessage = await client.GetAsync($"/Post/{id}");
+        string result = await responseMessage.Content.ReadAsStringAsync();
+        if (!responseMessage.IsSuccessStatusCode)
+        {
+            throw new Exception(result);
+        }
+
+        PostBasicDto post = JsonSerializer.Deserialize<PostBasicDto>(result, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return post;    }
+    
+
     private string ConstructQuery(string? userName, string? titleContains)
     {
         string query = "";

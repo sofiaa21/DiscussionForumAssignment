@@ -1,10 +1,10 @@
-﻿@page "/CreateUser"
+﻿@page "/Register"
 @using Domain.DTOs
 @using HttpClients
 @inject IUserService userService;
 
 <div class="card">
-    <h3>Create User</h3>
+    <h3>Register</h3>
     <div class="form-group field">
         <label>User name:</label>
         <input type="text" @bind="username" @bind:event="oninput"/>
@@ -22,7 +22,7 @@
         
     </div>
     <div class="button-row">
-        <button @onclick="Create" disabled="@(string.IsNullOrEmpty(username))" class="acceptbtn">Create</button>
+        <button @onclick="Create" disabled="@(string.IsNullOrEmpty(password))" class="acceptbtn">Create</button>
     </div>
 </div>
 

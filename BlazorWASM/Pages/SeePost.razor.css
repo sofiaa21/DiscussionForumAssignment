@@ -1,0 +1,36 @@
+.card
+{
+    box-shadow: 0 4px 8px 0 rgba(0,100,0, 0.23);
+    transition: 0.3s;
+    width: 250px;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+}
+
+.field {
+    margin-top: 20px;
+}
+
+.backBtn
+{
+    background-color:red;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.button-row{
+    margin-top: 15px;
+}
+
+.text-body
+{
+    border: #3dd5f3;
+    box-shadow: 0 4px 8px 0 rgba(173,216,230, 0.70);
+
+}

@@ -14,7 +14,8 @@
 }
 
 .acceptbtn {
-    background-color:lightgreen;
+    background-color:lightblue;
+    color: black;
     border-radius: 5px;
     padding: 5px;
     padding-left: 10px;

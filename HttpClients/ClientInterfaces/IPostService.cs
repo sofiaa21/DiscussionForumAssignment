@@ -11,4 +11,6 @@ public interface IPostService
         string? userName,
         string? titleContains
         );
+
+    Task<PostBasicDto> GetByIdAsync(int id);
 }

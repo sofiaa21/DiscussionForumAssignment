@@ -1,28 +1,15 @@
 ﻿@page "/ViewPosts"
+@attribute [Authorize]
 @inject IPostService postService;
 @using Domain.Models
 @using HttpClients
+@inject NavigationManager navMgr
 <h3>Posts</h3>
 
-<div class="filter-bar">
-    <div class="filters-container">
-        <img src="icons/@(doShowFilters ? "clear_" : "")funnel.png" class="funnel" @onclick="@(() => doShowFilters = !doShowFilters)" alt="Funnel"/>
-        @if (doShowFilters)
-        {
-            <div class="filter">
-                <label>Username:</label>
-                <input type="text" @bind="userNameFilter"/>
-            </div>
-            <div class="filter">
-                <label>Title contains:</label>
-                <input type="text" @bind="titleContainsFilter"/>
-            </div>
-        }
-    </div>
-</div>
 
-<div>
-    <button @onclick="LoadPosts">Load</button>
+
+<div class="wrapper">
+    <button @onclick="LoadPosts" class="loadButton"> Load</button>
 </div>
 
 @if (posts == null)
@@ -39,6 +26,7 @@ else
     <table class="table">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Author</th>
             <th>Title</th>
             <th>Body</th>
@@ -48,9 +36,15 @@ else
         @foreach (var item in posts)
         {
             <tr>
+                <td>@item.Id</td>
                 <td>@item.Author.UserName</td>
                 <td>@item.Title</td>
                 <td>@item.Body</td>
+
+                <td>
+                    <img src="images/lupa.png" class="seePostBtn"
+                         @onclick="@(() => navMgr.NavigateTo($"/SeePost/{item.Id}"))"/>
+                </td>
             </tr>
         }
         </tbody>

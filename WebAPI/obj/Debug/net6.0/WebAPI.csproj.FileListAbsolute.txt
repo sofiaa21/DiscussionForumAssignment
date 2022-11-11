@@ -64,3 +64,14 @@ C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\refint\Web
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\sofia\dnpAssignments\DiscussionForum\WebAPI\bin\Debug\net6.0\data.json

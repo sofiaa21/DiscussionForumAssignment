@@ -22,11 +22,10 @@ public class PostLogic:IPostLogic
         User? author = await userDao.GetByUsernameAsync(dto.OwnerUsername);
         if (author == null)
         {
-            throw new Exception($"User with username: {dto.OwnerUsername} was not found");
+            throw new Exception($"That's not your username! ");
         }
 
         Post postToCreate = new Post(author, dto.Title, dto.Body);
-
         ValidatePost(postToCreate);
         Post createdPost = await postDao.CreateAsync(postToCreate);
         return createdPost;
@@ -35,6 +34,17 @@ public class PostLogic:IPostLogic
     public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto searchPostParameters)
     {
         return postDao.GetAsync(searchPostParameters);
+    }
+
+    public async Task<PostBasicDto> GetByIdAsync(int id)
+    {
+        Post? post = await postDao.GetByIdAsync(id);
+        if (post == null)
+        {
+            throw new Exception($"Post with id {id} doesnt exit");
+        }
+
+        return new PostBasicDto(post.Id, post.Author.UserName, post.Title, post.Body);
     }
 
     private void ValidatePost(Post postToBeCreated)
