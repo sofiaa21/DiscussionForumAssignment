@@ -2,12 +2,12 @@
 
 using System.ComponentModel.DataAnnotations;
 using Domain.Models;
-using FileData;
+using EfcDataAccess;
 
 public class AuthServiceImpl:IAuthService
 {
 
-    private readonly FileContext context;
+    private readonly PostContext context;
 
 
     private User user = new()
@@ -16,7 +16,7 @@ public class AuthServiceImpl:IAuthService
         Password = "password"
     };
     
-    public AuthServiceImpl(FileContext context)
+    public AuthServiceImpl(PostContext context)
     {
         this.context = context;
         context.Users.Add(user);
@@ -25,7 +25,7 @@ public class AuthServiceImpl:IAuthService
 
     public Task<User> ValidateUser(string username, string password)
     {
-        List<User> users =(List<User>)context.Users;
+        List<User> users =context.Users.ToList();
 
         User? userLoggingIn = users.FirstOrDefault(u =>
             u.UserName.Equals(username, StringComparison.OrdinalIgnoreCase));
@@ -45,7 +45,7 @@ public class AuthServiceImpl:IAuthService
 
     public Task RegisterUser(User user)
     {
-        List<User> users =(List<User>)context.Users;
+        List<User> users =context.Users.ToList();
         if (string.IsNullOrEmpty(user.UserName))
         {
             throw new ValidationException("Username cannot be null");

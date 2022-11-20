@@ -56,6 +56,7 @@ public class PostController: ControllerBase
     {
         try
         {
+            Console.WriteLine("pomoc pls");
             PostBasicDto result = await postLogic.GetByIdAsync(id);
             return Ok(result);
         }

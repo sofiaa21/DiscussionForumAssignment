@@ -15,6 +15,14 @@ public class UserFileDao:IUserDao
 
     public Task<User> CreateAsync(User user)
     {
+        int id = 1;
+        if (context.Users.Any())
+        {
+            id = context.Users.Max(u => u.Id);
+            id++;
+        }
+
+        user.Id = id;
         context.Users.Add(user);
         context.SaveChanges();
         return Task.FromResult(user);
@@ -38,4 +46,10 @@ public class UserFileDao:IUserDao
             u.UserName.Equals(userName, StringComparison.OrdinalIgnoreCase)
         );
         return Task.FromResult(existing);    }
+
+    public Task<User?> GetByIdAsync(int userId)
+    {
+        User? existing = context.Users.FirstOrDefault(u => u.Id == userId);
+        return Task.FromResult(existing);
+    }
 }

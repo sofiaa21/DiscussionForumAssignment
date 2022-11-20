@@ -120,14 +120,14 @@
         }
       }
     },
-    "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\FileData.csproj": {
+    "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\EfcDataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\FileData.csproj",
-        "projectName": "FileData",
-        "projectPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\FileData.csproj",
+        "projectUniqueName": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\EfcDataAccess.csproj",
+        "projectName": "EfcDataAccess",
+        "projectPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\EfcDataAccess.csproj",
         "packagesPath": "C:\\Users\\sofia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\obj\\",
+        "outputPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sofia\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -157,6 +157,22 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.11, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -202,8 +218,8 @@
               "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\Application\\Application.csproj": {
                 "projectPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\Application\\Application.csproj"
               },
-              "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\FileData.csproj": {
-                "projectPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\FileData\\FileData.csproj"
+              "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\EfcDataAccess.csproj": {
+                "projectPath": "C:\\Users\\sofia\\dnpAssignments\\DiscussionForum\\EfcDataAccess\\EfcDataAccess.csproj"
               }
             }
           }

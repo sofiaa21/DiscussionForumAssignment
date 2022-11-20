@@ -9,7 +9,11 @@
 @inject NavigationManager navMgr  
 
 <div class="card">
- 
+    <AuthorizeView>
+        <Authorized>
+            <div>@context.User.Identity.Name</div>
+        </Authorized>
+    </AuthorizeView>
     
         <h2> Create a post </h2>
         <div class="form-group-field">
@@ -21,10 +25,10 @@
         <input type="text" @bind="postBody" style="width: 200px; height: 150px"/>
     </div>
     
-        <div class="form-group-field">
-            <label> Please sign your wise words so they can be tracked back to you : </label>
-            <input type="text" @bind="userName">
-        </div>
+        @* <div class="form-group-field"> *@
+        @*     <label> Please sign your wise words so they can be tracked back to you : </label> *@
+        @*     <input type="text" @bind="userName"> *@
+        @* </div> *@
         
         <div class="button-row">
             @if (!string.IsNullOrEmpty(msg))
@@ -53,7 +57,7 @@
 
     private IEnumerable<Claim?> claims;
     private bool isUserLoggedIn;
-    
+    private string claimUserName;
     
 
     protected override async Task OnInitializedAsync()
@@ -68,7 +72,7 @@
             return;
 
         claims = user.Claims;
-
+        claimUserName = user.Claims.First(c => c.Type.Equals("DisplayName")).Value;
 
         try
         {
@@ -85,11 +89,11 @@
     {
         msg = "";
         
-        if (string.IsNullOrEmpty(userName))
-        {
-            msg = "Username cant be empty!";
-            return;
-        }
+        // if (string.IsNullOrEmpty(userName))
+        // {
+        //     msg = "Username cant be empty!";
+        //     return;
+        // }
         if (string.IsNullOrEmpty(postTitle))
         {
             msg = "Title can't be empty!";
@@ -105,7 +109,7 @@
         {
 
 
-            PostCreationDto newPost = new(userName, postTitle, postBody);
+            PostCreationDto newPost = new(claimUserName, postTitle, postBody);
             await postService.CreateAsync(newPost);
             navMgr.NavigateTo("/ViewPosts");
             
